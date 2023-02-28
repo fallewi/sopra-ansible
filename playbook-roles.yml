@@ -2,8 +2,6 @@
 - name: "ceci est mon playbook qui appelle mes rôles"
   hosts: prod
   become: yes
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
   roles:
-    # - docker
+    - docker
     - mario
