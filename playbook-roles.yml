@@ -2,6 +2,9 @@
 - name: "ceci est mon playbook qui appelle mes rôles"
   hosts: prod
   become: yes
+  vars:
+    system_user: ec2-user
   roles:
     - docker
     - mario
+    - ansible-role-containerized-wordpress
