@@ -1,0 +1,10 @@
+---
+    - name: Create docker containers
+      docker_container:
+        name: "super-mario"
+        image: "pengbai/docker-supermario"
+        state: started
+        restart: "yes"
+        ports: "9001:8080"
+      tags: mario  
+

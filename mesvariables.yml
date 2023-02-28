@@ -1,0 +1,2 @@
+wordpress_allow_file_mods: true
+wordpress_database_host: 192.168.23.21

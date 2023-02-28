@@ -1,0 +1,30 @@
+---
+    - name: Install pre-requisite packages
+      yum:
+        name: "{{item}}"
+        state: latest
+      loop:
+        - yum-utils
+        - device-mapper-persistent-data
+        - lvm2
+        - python3
+      when: ansible_os_family == "RedHat"
+
+    - name: Install Docker
+      yum: 
+        name: docker 
+        state: latest
+      when: ansible_os_family == "RedHat"
+    - name: Start and enable the Docker daemon
+      service: 
+        name: docker 
+        state: started 
+        enabled: yes
+
+    - name: Add remote user to docker group
+      user:
+        name: ec2-user
+        groups: docker
+        append: yes
+
+...
